@@ -255,6 +255,7 @@ def print_data(df_to_print, no_voucher, nama_pengeluaran, total_pengeluaran):
         with open(html_path, "r", encoding="utf-8") as f:
             html_data = f.read()
 
+        # Tampilkan tombol download saja
         st.download_button(
             label="📥 Download Voucher (HTML)",
             data=html_data,
@@ -262,12 +263,9 @@ def print_data(df_to_print, no_voucher, nama_pengeluaran, total_pengeluaran):
             mime="text/html"
         )
 
-        st.components.v1.html(html_data, height=600, scrolling=True)
-
         st.success("Laporan berhasil dibuat. Silakan download untuk melihat hasilnya.")
     except Exception as e:
         st.error(f"Gagal membuat atau membuka file HTML: {e}")
-
 
 # --- Streamlit UI ---
 st.set_page_config(page_title="Pengeluaran Kas", layout="wide")
